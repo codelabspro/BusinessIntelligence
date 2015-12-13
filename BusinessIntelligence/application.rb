@@ -36,6 +36,7 @@ firstApp.title = "First App"
 firstApp.description = "Web application"
 firstApp.version = "1.0"
 firstApp.add_targetdevice("Chrome", "Google's Web Brower")
+firstApp.add_targetdevice("Firefox", "Firefox Web Brower")
 puts firstApp.to_s
 
 secondApp = Application.new
