@@ -23,8 +23,13 @@ class Application
         @version
     end
 
-    def to_s
-        to_string = "#{title} #{description} #{version}"
+    def to_s(format='full')
+        case format
+        when 'full'
+            to_string = "#{title} #{description} #{version}"
+        when 'partial'
+            to_string = "#{title} #{description}"
+        end
         to_string
     end
 
@@ -37,11 +42,11 @@ firstApp.description = "Web application"
 firstApp.version = "1.0"
 firstApp.add_targetdevice("Chrome", "Google's Web Brower")
 firstApp.add_targetdevice("Firefox", "Firefox Web Brower")
-puts firstApp.to_s
+puts firstApp.to_s('full')
 
 secondApp = Application.new
 secondApp.title = "Second App"
 secondApp.description = "Game for TV"
 secondApp.version = "2.0"
 secondApp.add_targetdevice("Apple TV", "Apple's 3rd generation Apple TV")
-puts secondApp.to_s
+puts secondApp.to_s('full')
