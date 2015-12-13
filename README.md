@@ -8,7 +8,8 @@ An application can have many targetdevices
 
 An application can have many 
 
-To run : 
+Running
+------- 
 $ cd BusinessIntelligence
 
 $ ruby application.rb
