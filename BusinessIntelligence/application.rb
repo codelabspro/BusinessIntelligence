@@ -1,6 +1,16 @@
+require "./targetdevice"
 class Application
     attr_writer :title, :description, :version
-
+    attr_reader :targetdevices
+    def initialize
+        @targetdevices = []
+    end
+    def add_targetdevice(title, description)
+        targetdevice = TargetDevice.new
+        targetdevice.title = title
+        targetdevice.description = description
+        targetdevices.push(targetdevice)
+    end
     def title
         @title
     end
