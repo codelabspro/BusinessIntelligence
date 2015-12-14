@@ -1,10 +1,21 @@
 require "./application"
+require "yaml"
 class BusinessIntelligence
     attr_reader :applications
     #---------------------------------------------------------------------
     def initialize
         @applications = []
+        open()
+    end
+    #---------------------------------------------------------------------
+    def open
 
+    end
+    #---------------------------------------------------------------------
+    def save
+        File.open("bi.yaml", "w") do |file|
+            file.write(applications.to_yaml)
+        end
     end
     #---------------------------------------------------------------------
     def run
@@ -18,6 +29,7 @@ class BusinessIntelligence
             input = gets.chomp.downcase
             case input
             when 'q'
+                save()
                 break
             when '1'
                 add_application
