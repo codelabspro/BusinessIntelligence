@@ -17,7 +17,7 @@ $ ruby application.rb
 Examples
 --------
 
-==> ruby application.rb 
+$ ruby application.rb 
 --------------------------
 First App Web application 1.0 
     - Target Devices : 
