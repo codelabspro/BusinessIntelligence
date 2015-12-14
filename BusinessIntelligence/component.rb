@@ -12,9 +12,3 @@ class Component
 
     end
 end
-
-
-cloud = Component.new
-cloud.name = "GAE"
-cloud.language = "Java"
-cloud.vendor = "Google"
