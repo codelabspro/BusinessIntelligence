@@ -12,7 +12,7 @@ Running
 ------- 
 $ cd BusinessIntelligence
 
-$ ruby application.rb
+$ ruby businessintelligence.rb
 
 Examples
 --------
