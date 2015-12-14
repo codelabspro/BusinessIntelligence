@@ -9,7 +9,9 @@ class BusinessIntelligence
     end
     #---------------------------------------------------------------------
     def open
-
+        if File.exist?("bi.yaml")
+            @applications = YAML.load_file("bi.yaml")
+        end
     end
     #---------------------------------------------------------------------
     def save
@@ -22,8 +24,9 @@ class BusinessIntelligence
         loop do
             puts "Business Intelligence"
             puts "1 : Add an Application"
-            puts "2 Search "
+            puts "2 Remove applications"
             puts "3 : Print Address Book"
+            puts "4 Search "
             puts "q to Exit"
             print "Enter choice: "
             input = gets.chomp.downcase
@@ -34,17 +37,23 @@ class BusinessIntelligence
             when '1'
                 add_application
             when '2'
+                remove_applications
+            when '3'
+                puts "Printing Applications"
+                print_applications
+            when '4'
                 print "Search term : "
                 search = gets.chomp
                 find_by_title(search)
                 find_by_description(search)
                 find_by_component(search)
-            when '3'
-                puts "Printing Applications"
-                print_applications
             end
 
         end
+    end
+    #---------------------------------------------------------------------
+    def remove_applications
+        @applications = []
     end
     #---------------------------------------------------------------------
     def add_application
