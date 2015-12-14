@@ -14,7 +14,7 @@ class BusinessIntelligence
                 results.push(application)
             end
         end
-        print_results(search, results)
+        print_results("Title search results (#{search})", results)
 
     end
 
@@ -26,11 +26,24 @@ class BusinessIntelligence
                 results.push(application)
             end
         end
-        print_results(search, results)
+        print_results("Description search results (#{search})", results)
     end
 
-    def print_results(search, results)
-        puts "Application search results (#{search})"
+    def find_by_component(query)
+        results = []
+        search = query.downcase
+        applications.each do |application|
+            application.components.each do |component|
+                if component.to_s('full').downcase.include?(search)
+                    results.push(application) unless results.include?(application)
+                end
+            end
+        end
+        print_results("Component search results (#{search})",results)
+    end
+
+    def print_results(label, results)
+        puts label
         puts "--------------------------"
         results.each do |application|
                 puts application.to_s('full')
@@ -71,5 +84,6 @@ businessintelligence.applications.push(secondApp)
 puts "--------------------------"
 # businessintelligence.print_applications
 # businessintelligence.find_by_title("second")
-businessintelligence.find_by_description("game")
+# businessintelligence.find_by_description("game")
+businessintelligence.find_by_component("gae")
 puts "--------------------------"
