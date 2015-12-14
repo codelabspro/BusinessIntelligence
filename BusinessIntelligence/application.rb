@@ -56,28 +56,3 @@ class Application
 
 
 end
-
-
-puts "--------------------------"
-firstApp = Application.new
-firstApp.title = "First App"
-firstApp.description = "Web application"
-firstApp.version = "1.0"
-firstApp.add_targetdevice("Chrome", "Google's Web Brower")
-firstApp.add_targetdevice("Firefox", "Firefox Web Brower")
-firstApp.add_component("GAE", "Java", "Google")
-puts firstApp.to_s('full')
-firstApp.print_targetdevices
-firstApp.print_components
-# puts firstApp.inspect
-puts "--------------------------"
-secondApp = Application.new
-secondApp.title = "Second App"
-secondApp.description = "Game for TV"
-secondApp.version = "2.0"
-secondApp.add_targetdevice("Apple TV", "Apple's 3rd generation Apple TV")
-puts secondApp.to_s('full')
-secondApp.print_targetdevices
-# puts secondApp.inspect
-
-puts "--------------------------"
