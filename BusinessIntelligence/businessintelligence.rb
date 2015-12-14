@@ -14,6 +14,22 @@ class BusinessIntelligence
                 results.push(application)
             end
         end
+        print_results(search, results)
+
+    end
+
+    def find_by_description(description)
+        results = []
+        search = description.downcase
+        applications.each do |application|
+            if application.description.downcase.include?(search)
+                results.push(application)
+            end
+        end
+        print_results(search, results)
+    end
+
+    def print_results(search, results)
         puts "Application search results (#{search})"
         puts "--------------------------"
         results.each do |application|
@@ -22,7 +38,6 @@ class BusinessIntelligence
                 application.print_components
                 puts "\n"
         end
-
     end
 
     def print_applications
@@ -55,5 +70,6 @@ secondApp.add_component("AWS", "Python", "Amazon" )
 businessintelligence.applications.push(secondApp)
 puts "--------------------------"
 # businessintelligence.print_applications
-businessintelligence.find_by_title("second")
+# businessintelligence.find_by_title("second")
+businessintelligence.find_by_description("game")
 puts "--------------------------"
